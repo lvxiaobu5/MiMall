@@ -22,7 +22,7 @@ export default {
     }
   },
   mounted(){
-    let url = "https://www.imooc.com/common/adver-getadverlistbymarking"
+    let url = "/api/activity/servicetime";
     // axios.get(url).then(()=>{
       
     // })
