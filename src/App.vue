@@ -27,4 +27,5 @@ export default {
 @import './assets/scss/config.scss';
 @import './assets/scss/mixin.scss';
 @import './assets/scss/modal.scss';
+@import './assets/scss/button.scss';
 </style>
