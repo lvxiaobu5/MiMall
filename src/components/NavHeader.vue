@@ -40,8 +40,65 @@
             </div>
           </div>
           <div class="item-menu">
-            <span>Redmi红米</span>
-            <div class="children"></div>
+            <span>Redmi 红米</span>
+            <div class="children">
+              <ul>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/584add2c9cfdb9eefe7b642bf191773a.png?thumb=1&w=198&h=136&f=webp&q=90'" />
+                    </div>
+                    <div class="pro-name">Redmi Note 9 系列</div>
+                    <div class="pro-price">999元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/81808cd191332114f44d8d0cb0d0813a.png?thumb=1&w=198&h=136&f=webp&q=90'" />
+                    </div>
+                    <div class="pro-name">Redmi K30S 至尊纪念版</div>
+                    <div class="pro-price">2599元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/31d0dc82068abcaa46464b4baa9fbbdf.jpg?thumb=1&w=198&h=136&f=webp&q=90'" />
+                    </div>
+                    <div class="pro-name">Redmi K30 至尊纪念版</div>
+                    <div class="pro-price">1999元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7bd1b02e0329bd5c41d193f01349f991.jpg?thumb=1&w=198&h=136&f=webp&q=90'" />
+                    </div>
+                    <div class="pro-name">Redmi 9A</div>
+                    <div class="pro-price">599元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cff2977b8aab1e43b94b2f00083f4ae1.jpg?thumb=1&w=198&h=136&f=webp&q=90'" />
+                    </div>
+                    <div class="pro-name">Redmi K30系列</div>
+                    <div class="pro-price">1399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6a6548361871303764d6c66142074524.png?thumb=1&w=198&h=136&f=webp&q=90'" />
+                    </div>
+                    <div class="pro-name">Redmi 10X</div>
+                    <div class="pro-price">999元起</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="item-menu">
             <span>电视</span>
@@ -177,6 +234,7 @@ export default {
           background-color: #FF6600;
           text-align: center;
           color: #ffffff;
+          margin-right: 0;
           .icon-cart{
             @include bgImg(16px,12px,'/imgs/icon-cart-checked.png');
             margin-right: 4px;
