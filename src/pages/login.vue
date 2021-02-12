@@ -37,7 +37,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from 'vuex';  // 导入vuex，从里面解构一个mapActions对象进来
 export default {
   name: 'login',
   data(){
@@ -56,7 +56,7 @@ export default {
       }).then((res)=>{
         this.$cookie.set('userId',res.id,{expires:'1M'});
         // this.$store.dispatch('saveUserName',res.username);
-        // this.saveUserName(res.username);
+        this.saveUserName(res.username);
         // this.$router.push({
         //   name:'index',
         //   params:{
