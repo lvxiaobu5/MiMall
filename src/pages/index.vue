@@ -167,7 +167,7 @@
           <div class="list-box">
             <div class="list" v-for="(arr,i) in phoneList" :key="i">
               <div class="item" v-for="(item,j) in arr" :key="j">
-                <span :class="j%2==0?'new-pro':'kill-pro'">新品</span>
+                <span :class="j%2==0?'new-pro':'kill-pro'">秒杀</span>
                 <div class="item-img">
                   <img v-lazy="item.mainImage" alt="">
                 </div>
@@ -304,16 +304,16 @@ export default {
         this.phoneList = [res.list.slice(0,4),res.list.slice(4,8)];
       })
     },
-    addCart(){
-      this.showModal = true;
-      // this.axios.post('/carts',{
-      //   productId:id,
-      //   selected:true
-      // }).then(() => {
-
-      // }).catch(() => {
-      //   this.showModal = true;
-      // })
+    addCart(id){
+      this.axios.post('/carts',{
+        productId:id,
+        selected:true
+      }).then((res) => {
+        this.showModal = true;
+        this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
+      }).catch(() => {
+        this.showModal = true;
+      })
     },
     goToCart(){
       this.$router.push('/cart');

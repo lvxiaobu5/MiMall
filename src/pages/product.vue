@@ -68,7 +68,7 @@ export default {
       product:{},   //商品信息
       swiperOption:{
         autoplay: true,   //自动播放，否则它不会播放
-        slidePerView: 3,
+        slidesPerView: 3,
         spaceBetween: 30,
         freeMode: true,
         pagination: {
@@ -154,6 +154,7 @@ export default {
           font-size:18px;
           color:#333333;
           text-align:center;
+          margin-top: 5px;
         }
         img{
           width:100%;
