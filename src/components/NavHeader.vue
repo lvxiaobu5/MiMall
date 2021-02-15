@@ -256,30 +256,6 @@ export default {
         position: relative;
         height: 112px;
         @include flex();
-        .header-logo{
-          display: inline-block;
-          width: 55px;
-          height: 55px;
-          background-color: #FF6600;
-          a{
-            display: inline-block;
-            width: 110px;
-            height: 55px;
-            &:before{   /* sass的简化写法，生成一个伪类 */
-              content: ' ';   /**重点，不加伪类就生成不了，站位的，一定要让它站一下位 */
-              @include bgImg(55px,55px,'/imgs/mi-logo.png',55px);
-              transition: margin .2s;
-            }
-            &:after{   /* sass的简化写法，生成一个伪类 */
-              content: ' ';
-              @include bgImg(55px,55px,'/imgs/mi-home.png',55px);
-            }
-            &:hover:before{
-              margin-left: -55px;
-              transition: margin .2s;
-            }
-          }
-        }
         .header-menu{
           display: inline-block;
           width: 643px;
