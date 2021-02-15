@@ -1,3 +1,4 @@
+import { mapState } from 'vuex';
 <template>
   <div class="order-header">
     <div class="container clearfix">
@@ -8,18 +9,22 @@
         <h2>{{title}}<slot name="tip"></slot></h2>
       </div>
       <div class="username">
-        <a href="javascript:;">KaYo</a>
+        <a href="javascript:;">{{username}}</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name:'order-header',
   props:{
     title: String,
-  }
+  },
+  computed:{
+    ...mapState(['username'])
+  },
 }
 </script>
 <style lang="scss" scoped>
