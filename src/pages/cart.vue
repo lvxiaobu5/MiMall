@@ -128,6 +128,15 @@
         this.axios.delete(`/carts/${item.productId}`).then((res)=>{
           this.renderData(res);
         })
+      },
+      // 购物车下单
+      order(){
+        let isCheck = this.list.every(item=>!item.productSelected);
+        if (isCheck) {
+          alert('请选择一件商品');
+        } else {
+          this.$router.push('/order/confirm');
+        }
       }
     }
   }
