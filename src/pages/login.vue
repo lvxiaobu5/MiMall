@@ -54,17 +54,25 @@ export default {
         username,
         password
       }).then((res)=>{
-        this.$cookie.set('userId',res.id,{expires:'1M'});
+        // to-do 保存用户名
+        this.$cookie.set('userId',res.id,{expires:'Session'});
         // this.$store.dispatch('saveUserName',res.username);
         this.saveUserName(res.username);
+        // params传参，可以理解为POST传参
+        this.$router.push({
+          name:'index',
+          params:{
+            from:'login'
+          }
+        });
+        // query传参，其实就是GET传参
         // this.$router.push({
-        //   name:'index',
-        //   params:{
+        //   path:'/index',
+        //   query:{
         //     from:'login'
         //   }
         // });
-        // to-do 保存用户名
-        this.$router.push('/index');
+        // this.$router.push('/index');
       })
     },
     ...mapActions(['saveUserName']),
