@@ -75,7 +75,7 @@ export default {
         email:'KaYo@163.com'
       }).then(()=>{
         // this.$message.success('注册成功');
-        alert('注册成功');
+        this.$message.success('注册成功');
       })
     }
   }
