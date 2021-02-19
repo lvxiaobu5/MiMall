@@ -105,7 +105,7 @@
       </div>
     </div>
     <modal
-      title="新增确认"
+      title="新增地址"
       btnType="1"
       :showModal="showEditModal"
       @cancel="showEditModal=false"
@@ -114,34 +114,34 @@
       <template v-slot:body>
         <div class="edit-wrap">
           <div class="item">
-            <input type="text" class="input" placeholder="姓名" v-model="checkedItem.receiverName">
-            <input type="text" class="input" placeholder="手机号" v-model="checkedItem.receiverMobile">
+            <input type="text" class="input" placeholder="姓名">
+            <input type="text" class="input" placeholder="手机号">
           </div>
           <div class="item">
-            <select name="province" v-model="checkedItem.receiverProvince">
+            <select name="province">
               <option value="北京">北京</option>
-              <option value="天津">天津</option>
-              <option value="河北">河北</option>
+              <option value="上海">上海</option>
+              <option value="广东">广东</option>
             </select>
-            <select name="city" v-model="checkedItem.receiverCity">
+            <select name="city">
               <option value="北京">北京</option>
-              <option value="天津">天津</option>
-              <option value="河北">石家庄</option>
+              <option value="上海">上海</option>
+              <option value="广东">广州</option>
             </select>
-            <select name="district" v-model="checkedItem.receiverDistrict">
+            <select name="district">
               <option value="北京">昌平区</option>
-              <option value="天津">海淀区</option>
-              <option value="河北">东城区</option>
-              <option value="天津">西城区</option>
-              <option value="河北">顺义区</option>
-              <option value="天津">房山区</option>
+              <option value="上海">浦东区</option>
+              <option value="广东">天河区</option>
+              <option value="北京">朝阳区</option>
+              <option value="上海">浦西区</option>
+              <option value="广东">海珠区</option>
             </select>
           </div>
           <div class="item">
-            <textarea name="street" v-model="checkedItem.receiverAddress"></textarea>
+            <textarea name="street"></textarea>
           </div>
           <div class="item">
-            <input type="text" class="input" placeholder="邮编" v-model="checkedItem.receiverZip">
+            <input type="text" class="input" placeholder="邮编">
           </div>
         </div>
       </template>
@@ -173,6 +173,7 @@ export default {
       checkdeItem:{},//选中的地址对象
       userAction:'',//用户行为 0：新增 1：编辑 2：删除
       showDelModal:false,//是否显示删除弹框
+      showEditModal:false,//是否显示新增或者编辑弹框
     }
   },  
   components:{
