@@ -161,6 +161,7 @@
 </template>
 
 <script>
+import Modal from './../components/Modal'
 export default {
   name:'order-confirm',
   data() {
@@ -169,8 +170,14 @@ export default {
       cartList: [],//购物车中需要结算的商品列表
       cartTotalPrice: 0,//商品总金额
       count: 0,    //商品结算数量
+      checkdeItem:{},//选中的地址对象
+      userAction:'',//用户行为 0：新增 1：编辑 2：删除
+      showDelModal:false,//是否显示删除弹框
     }
   },  
+  components:{
+    Modal,
+  },
   mounted() {
     this.getAddressList();
     this.getCartList();
@@ -180,6 +187,33 @@ export default {
       this.axios.get('/shippings').then((res)=>{
         this.list = res.list;
       })
+    },
+    delAddress(item){
+      this.checkdeItem = item;
+      this.userAction = 2;
+      this.showDelModal = true;
+    },
+    // 地址删除、编辑、新增功能
+    submitAddress(){
+      let { checkedItem,userAction } = this;
+      let method,url;
+      if (userAction == 0) {
+        method = 'post',url = '/shippings';
+      } else if (userAction == 1) {
+        method = 'put',url = `/shippings/${checkedItem.id}`;
+      } else {
+        method = 'delete',url = `/shippings/${checkedItem.id}`;
+      }
+      this.axios[method](url).then(()=>{
+        this.closeModal();
+        this.getAddressList();
+        this.$message.success('操作成功');
+      })
+    },
+    closeModal(){
+      this.checkdeItem = {};
+      this.userAction = '';
+      this.showDelModal = false;
     },
     getCartList(){
       this.axios.get('/carts').then((res)=>{
