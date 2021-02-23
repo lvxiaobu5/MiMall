@@ -1,15 +1,22 @@
 <template>
   <div class="ali-pay">
+    <order-header title="支付宝支付">
+      <template v-slot:tip>
+        <span>请谨防钓鱼链接或诈骗电话</span>
+      </template>
+    </order-header>
     <loading v-if="loading"></loading>
     <div class="form" v-html="content"></div>
   </div>
 </template>
 
 <script>
+import OrderHeader from '../components/OrderHeader'
 import Loading from './../components/Loading'
 export default {
   name:'ali-pay',
   components:{
+    OrderHeader,
     Loading,
   },
   data() {
