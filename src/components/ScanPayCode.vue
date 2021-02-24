@@ -41,6 +41,7 @@
       bottom: 0;
       opacity: .6;
       background-color: #000000;
+      z-index: 10;
     }
     .item-wrap{
       position: fixed;
@@ -50,6 +51,7 @@
       transform: translate(-50%,-50%);
       display: flex;
       align-items: center;
+      z-index: 12;
       .img-scan{
         @include bgImg(296px,485px,'/imgs/pay/icon-scan.png');
       }
