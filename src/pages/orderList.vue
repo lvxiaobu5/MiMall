@@ -47,6 +47,7 @@
             </div>
           </div>
           <el-pagination
+            v-if="false"
             class="pagination"
             background
             layout="prev, pager, next"
@@ -54,6 +55,9 @@
             :total="total"
             @current-change="handleChange">
           </el-pagination>
+          <div class="load-more">
+            <el-button type="primary" :loading="loading" @click="loadMore">加载更多</el-button>
+          </div>
           <no-data v-if="!loading && list.length==0"></no-data>
         </div>
       </div>
@@ -64,7 +68,7 @@
   import OrderHeader from './../components/OrderHeader'
   import Loading from './../components/Loading'
   import NoData from './../components/NoData'
-  import { Pagination } from 'element-ui'
+  import { Pagination,Button } from 'element-ui'
   export default{
     name:'order-list',
     components:{
@@ -72,13 +76,14 @@
       Loading,
       NoData,
       [Pagination.name]:Pagination,
+      [Button.name]:Button,
     },
     data() {
       return {
         list:[],    //订单列表
-        loading:true,//默认显示loading
-        pageSize:10,
-        pageNum:1,
+        loading:false,//默认显示loading
+        pageSize:10,//每页显示条目个数，固定10条
+        pageNum:1,  //当前页码
         total:0,
       }
     },  
@@ -87,13 +92,15 @@
     },
     methods:{
       getOrderList(){
+        this.loading = true;
         this.axios.get('/orders',{
           params:{
+            pageSize: 10,
             pageNum: this.pageNum,
           }
         }).then((res)=>{
           this.loading = false;
-          this.list = res.list;
+          this.list = this.list.concat(res.list);
           this.total = res.total;
         }).catch(()=>{
           this.loading = false;
@@ -118,6 +125,10 @@
       },
       handleChange(pageNum){
         this.pageNum = pageNum;
+        this.getOrderList();
+      },
+      loadMore(){
+        this.pageNum++;
         this.getOrderList();
       }
     }
