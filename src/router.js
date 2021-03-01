@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/home'
-import Login from './pages/login'
+// import Login from './pages/login'
 import Index from './pages/index'
-import Product from './pages/product'
-import Detail from './pages/detail'
+// import Product from './pages/product'
+// import Detail from './pages/detail'
 import Cart from './pages/cart'
 import Order from './pages/order'
 import OrderList from './pages/orderList'
 import OrderConfirm from './pages/orderConfirm'
 import OrderPay from './pages/orderPay'
 import AliPay from './pages/aliPay'
+// import { resolve } from 'core-js/fn/promise'
 
 Vue.use(Router)
 
@@ -29,17 +30,17 @@ export default new Router({
         }, {
           path: '/product/:id',
           name: 'product',
-          component: Product
+          component: resolve => require(['./pages/product.vue'],resolve),
         }, {
           path: '/detail/:id',
           name: 'detail',
-          component: Detail
+          component: resolve => require(['./pages/detail.vue'],resolve),
         }
       ]
     }, {
       path: '/login',
       name: 'login',
-      component: Login
+      component: resolve => require(['./pages/login.vue'],resolve),
     }, {
       path: '/cart',
       name: 'cart',
